@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-didat: "Didact Gothic", sans-serif;
+  --font-pt: "PT Serif", serif;
+}
+@theme {
+  --text-shadow-d: 0 1px 4px rgb(0, 0, 0);
+}
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
