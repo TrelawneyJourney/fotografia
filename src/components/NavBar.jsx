@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { icons } from "../assets/icons";
 import { navigation } from "../data/Projects";
 
@@ -13,23 +13,6 @@ export default function NavBar() {
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
   };
-  //cierra click afuera
-  useEffect(() => {
-    const handleClickOut = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setMenuOpen(false);
-      }
-    };
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOut);
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOut);
-    };
-  }, [menuOpen]);
 
   //fadeOut cross
   const handleClose = () => {
@@ -46,8 +29,8 @@ export default function NavBar() {
       <header className="relative">
         <nav className="flex justify-between items-center px-4 fixed inset-x-6 top-12 z-40">
           {/* logo */}
-          <div className="text-white font-didat text-3xl">
-            <a href="#" className="text-shadow-d text-shadow-black">
+          <div className="text-white font-didat text-xl md:text-3xl">
+            <a href="#" className="text-shadow-md/70 text-shadow-black">
               Gala Fotografía
             </a>
           </div>
@@ -91,7 +74,7 @@ export default function NavBar() {
                   {navigation.map((item) => (
                     <li
                       key={item.url}
-                      className="text-neutral-500 text-4xl hover:text-neutral-950"
+                      className="text-neutral-500 text-2xl md:text-4xl hover:text-neutral-950 focus:text-neutral-950"
                     >
                       <a href="">{item.titulo}</a>
                     </li>
@@ -101,7 +84,10 @@ export default function NavBar() {
 
               {/* condiciones */}
               <div>
-                <a href="" className="text-neutral-400 hover:text-neutral-900">
+                <a
+                  href=""
+                  className="text-neutral-400 hover:text-neutral-900 focus:text-neutral-900"
+                >
                   terminos y condiciones
                 </a>
               </div>

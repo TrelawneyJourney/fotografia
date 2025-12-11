@@ -31,7 +31,7 @@ export default function Carousel() {
                 alt={ph.titulo}
                 className="w-full h-full object-cover cursor-pointer"
               />
-              <div className="absolute bottom-20 left-10 text-white p-4 rounded-lg backdrop-blur-2xl backdrop-opacity-55 max-w-md">
+              <div className="absolute bottom-20 left-10 text-white p-4 rounded-lg bg-neutral-800/20 backdrop-blur-2xl backdrop-opacity-55 max-w-md">
                 <h2 className="text-3xl font-pt">{ph.titulo}</h2>
               </div>
             </div>
