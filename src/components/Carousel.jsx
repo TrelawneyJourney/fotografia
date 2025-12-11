@@ -32,7 +32,7 @@ export default function Carousel() {
                 alt={ph.titulo}
                 className="w-full h-full object-cover cursor-pointer"
               />
-              <div className="absolute bottom-80 md:bottom-5 left-10">
+              <div className="absolute bottom-40 md:bottom-5 left-10">
                 <PhotoDescription description={ph.titulo} />
               </div>
             </div>
