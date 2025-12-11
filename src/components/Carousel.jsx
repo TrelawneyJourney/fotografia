@@ -7,6 +7,7 @@ import { useState } from "react";
 import VerticalPagination from "./VerticalPagination";
 
 import { photos } from "../data/Projects";
+import PhotoDescription from "./PhotoDescription";
 
 export default function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -31,8 +32,8 @@ export default function Carousel() {
                 alt={ph.titulo}
                 className="w-full h-full object-cover cursor-pointer"
               />
-              <div className="absolute bottom-20 left-10 text-white p-4 rounded-lg bg-neutral-800/20 backdrop-blur-2xl backdrop-opacity-55 max-w-md">
-                <h2 className="text-3xl font-pt">{ph.titulo}</h2>
+              <div className="absolute bottom-5 left-10">
+                <PhotoDescription description={ph.titulo} />
               </div>
             </div>
           </SwiperSlide>
