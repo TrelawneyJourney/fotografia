@@ -27,7 +27,7 @@ export default function NavBar() {
   return (
     <div>
       <header className="relative">
-        <nav className="flex justify-between items-center px-4 fixed inset-x-6 top-12 z-40">
+        <nav className="flex justify-between items-center px-4 fixed inset-x-6 top-6 md:top-12 z-40">
           {/* logo */}
           <div className="text-white font-didat text-xl md:text-3xl">
             <a href="#" className="text-shadow-md/70 text-shadow-black">
