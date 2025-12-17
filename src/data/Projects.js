@@ -34,14 +34,41 @@ export const photos = [
 export const navigation = [
   {
     titulo: "Proyectos",
-    url: "#proyectos",
+    url: "/projects",
   },
   {
     titulo: "Estudio",
-    url: "#estudio",
+    url: "/estudio",
   },
   {
     titulo: "Contacto",
-    url: "#contacto",
+    url: "/contact",
+  },
+];
+
+export const proyectos = [
+  {
+    id: 1,
+    titulo: "Nubes",
+    url: "nube",
+    portada: `${import.meta.env.BASE_URL}photos/nubes/nube.jpg`,
+    fotos: [
+      `${import.meta.env.BASE_URL}photos/nubes/nube-1.jpg`,
+      `${import.meta.env.BASE_URL}photos/nubes/nube-2.jpg`,
+      `${import.meta.env.BASE_URL}photos/nubes/nube-3.jpg`,
+      `${import.meta.env.BASE_URL}photos/nubes/nube-4.jpg`,
+    ],
+  },
+  {
+    id: 2,
+    titulo: "Mar",
+    url: "mar",
+    portada: `${import.meta.env.BASE_URL}photos/mar/mar.jpg`,
+    fotos: [
+      `${import.meta.env.BASE_URL}photos/mar/mar-1.jpg`,
+      `${import.meta.env.BASE_URL}photos/mar/mar-2.jpg`,
+      `${import.meta.env.BASE_URL}photos/mar/mar-3.jpg`,
+      `${import.meta.env.BASE_URL}photos/mar/mar-4.jpg`,
+    ],
   },
 ];

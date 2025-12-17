@@ -1,6 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { icons } from "../assets/icons";
 import { navigation } from "../data/Projects";
+import { Link, useLocation } from "react-router-dom";
 
 export default function NavBar() {
   const CrossIcon = icons.cross;
@@ -8,6 +9,11 @@ export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const menuRef = useRef();
+  const location = useLocation();
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location]);
 
   // abre y cierra menu
   const toggleMenu = () => {
@@ -29,11 +35,11 @@ export default function NavBar() {
       <header className="relative">
         <nav className="flex justify-between items-center px-4 fixed inset-x-6 top-6 md:top-12 z-40">
           {/* logo */}
-          <div className="text-white font-didat text-xl md:text-3xl">
-            <a href="#" className="text-shadow-md/70 text-shadow-black">
+          <Link to="/">
+            <p className="text-white font-didat text-xl md:text-3xl text-shadow-md/70 text-shadow-black">
               Gala Fotografía
-            </a>
-          </div>
+            </p>
+          </Link>
 
           {/* hamburger icon */}
           <div>
@@ -72,12 +78,12 @@ export default function NavBar() {
               <div className="">
                 <ul className="flex flex-col justify-center items-center gap-10 md:flex md:flex-row md:justify-center md:gap-40">
                   {navigation.map((item) => (
-                    <li
-                      key={item.url}
+                    <Link
+                      to={item.url}
                       className="text-neutral-500 text-2xl md:text-4xl hover:text-neutral-950 focus:text-neutral-950"
                     >
-                      <a href="">{item.titulo}</a>
-                    </li>
+                      {item.titulo}
+                    </Link>
                   ))}
                 </ul>
               </div>
