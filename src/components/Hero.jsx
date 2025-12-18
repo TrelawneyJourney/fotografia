@@ -1,5 +1,5 @@
 import { icons } from "../assets/icons";
-import Carousel from "./carousel";
+import Carousel from "./Carousel";
 
 export default function Hero() {
   const InstaIcon = icons.insta;

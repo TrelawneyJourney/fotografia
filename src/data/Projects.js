@@ -71,4 +71,16 @@ export const proyectos = [
       `${import.meta.env.BASE_URL}photos/mar/mar-4.jpg`,
     ],
   },
+  {
+    id: 3,
+    titulo: "Noche",
+    url: "noche",
+    portada: `${import.meta.env.BASE_URL}photos/noche/noche.jpg`,
+    fotos: [
+      `${import.meta.env.BASE_URL}photos/noche/noche-1.jpg`,
+      `${import.meta.env.BASE_URL}photos/noche/noche-2.jpg`,
+      `${import.meta.env.BASE_URL}photos/noche/noche-3.jpg`,
+      `${import.meta.env.BASE_URL}photos/noche/noche-4.jpg`,
+    ],
+  },
 ];
