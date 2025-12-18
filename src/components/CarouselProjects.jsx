@@ -3,20 +3,21 @@ import { EffectFade, Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import VerticalPagination from "./VerticalPagination";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import { proyectos } from "../data/Projects";
+import { Link } from "react-router-dom";
 
-export default function Carousel() {
-  const [activeIndex, setActiveIndex] = useState(0);
+export default function Carousel({ onSlideChange, setSwiper }) {
   const slidesRef = useRef([]);
 
   useEffect(() => {
     slidesRef.current.forEach((slide) => {
       const image = slide.querySelector(".slide-image");
+
       gsap.fromTo(
         image,
         { opacity: 0, scale: 1.05, y: 40 },
@@ -34,22 +35,22 @@ export default function Carousel() {
         }
       );
     });
+
     return () => ScrollTrigger.killAll();
   }, []);
 
   return (
     <>
-      <VerticalPagination active={activeIndex} total={proyectos.length} />
-
       <Swiper
-        rewind={true}
+        direction="vertical"
         mousewheel={{ forceToAxis: true }}
         speed={800}
-        threshold={5}
-        direction="vertical"
         modules={[EffectFade, Mousewheel]}
         className="mySwiper h-screen w-full"
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        rewind={true}
+        threshold={5}
+        onSwiper={setSwiper}
+        onSlideChange={(swiper) => onSlideChange(swiper.activeIndex)}
       >
         {proyectos.map((ph, index) => (
           <SwiperSlide
@@ -58,12 +59,14 @@ export default function Carousel() {
             ref={(el) => (slidesRef.current[index] = el)}
           >
             <div className=" h-full w-full flex items-center justify-center">
-              <div className="w-[800px] h-[400px] slide_inner">
-                <img
-                  src={ph.portada}
-                  alt={ph.titulo}
-                  className="slide-image w-full h-full object-cover cursor-pointer"
-                />
+              <div className="w-[400px] h-[400px] md:w-[800px] md:h-[400px] slide_inner">
+                <Link to={ph.url}>
+                  <img
+                    src={ph.portada}
+                    alt={ph.titulo}
+                    className="slide-image w-full h-full object-cover cursor-pointer"
+                  />
+                </Link>
               </div>
             </div>
           </SwiperSlide>

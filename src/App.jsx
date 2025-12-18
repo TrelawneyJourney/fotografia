@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Estudio from "./pages/Estudio";
 import Contact from "./pages/Contact";
+import ProjectsDetail from "./pages/ProjectsDetails";
 
 const router = createBrowserRouter(
   [
@@ -18,6 +19,12 @@ const router = createBrowserRouter(
         {
           path: "projects",
           element: <Projects />,
+          children: [
+            {
+              path: ":url",
+              element: <ProjectsDetail />,
+            },
+          ],
         },
         {
           path: "estudio",
