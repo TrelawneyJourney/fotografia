@@ -1,25 +1,21 @@
 import { proyectos } from "../data/Projects";
 import CarouselProjects from "../components/CarouselProjects";
-import Carousel from "../components/Carousel";
 
 export default function Projects() {
   return (
-    <div className="h-screen bg-gradient-to-b from-neutral-200 to-stone-50">
-      <div className="flex gap-44">
-        {/* menu */}
-        <div className="border border-amber-300 bg-amber-300 self-end hidden md:block pl-14">
-          <ul>
-            {proyectos.map((item) => (
-              <li>{item.titulo}</li>
-            ))}
-          </ul>
-        </div>
+    <div className="relative min-h-screen bg-gradient-to-b from-neutral-200 to-stone-50">
+      {/* menu */}
+      <aside className="fixed left-0 bottom-10 z-50 bg-amber-300 hidden md:block pl-14">
+        <ul className="space-y-2">
+          {proyectos.map((item) => (
+            <li key={item.id}>{item.titulo}</li>
+          ))}
+        </ul>
+      </aside>
 
-        {/* imagen */}
-        <div className="">
-          <CarouselProjects />
-        </div>
-      </div>
+      {/* imagen */}
+
+      <CarouselProjects />
     </div>
   );
 }

@@ -1,81 +1,67 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Mousewheel } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/pagination";
-import { useState, useEffect, useRef } from "react";
-import VerticalPagination from "./VerticalPagination";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { proyectos } from "../data/Projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
-import { photos, proyectos } from "../data/Projects";
-import PhotoDescription from "./PhotoDescription";
-
-export default function Carousel() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const slidesRef = useRef([]);
+export default function CarouselProjects() {
+  const stackRef = useRef([]);
 
   useEffect(() => {
-    slidesRef.current.forEach((slide) => {
-      const image = slide.querySelector(".slide-image");
+    stackRef.current.forEach((item, i) => {
+      if (i === 0) return;
+
       gsap.fromTo(
-        image,
+        item,
         {
-          opacity: 0,
+          y: "100%",
           scale: 1.05,
-          y: 40,
         },
         {
-          opacity: 1,
+          y: "0%",
           scale: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
+          ease: "none",
           scrollTrigger: {
-            trigger: slide,
-            start: "top center",
-            toggleActions: "play none none reverse",
+            trigger: document.body,
+            start: `${i * 100}vh top`,
+            end: `${(i + 1) * 100}vh top`,
+            scrub: true,
           },
         }
       );
     });
+
     return () => ScrollTrigger.killAll();
   }, []);
 
   return (
     <>
-      <VerticalPagination active={activeIndex} total={photos.length} />
+      {/*  scroll */}
+      <div
+        className="absolute top-0 left-0 w-full"
+        style={{ height: `${proyectos.length * 100}vh` }}
+      />
 
-      <Swiper
-        rewind={true}
-        mousewheel={{ forceToAxis: true }}
-        speed={800}
-        threshold={5}
-        direction="vertical"
-        modules={[EffectFade, Mousewheel]}
-        className="mySwiper h-screen w-full"
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-      >
-        {proyectos.map((ph, index) => (
-          <SwiperSlide
-            key={ph.id}
-            className="slide"
-            ref={(el) => (slidesRef.current[index] = el)}
-          >
-            <div className=" h-full w-full flex items-center justify-center">
-              <div className="w-[800px] h-[400px] slide_inner">
-                <img
-                  src={ph.portada}
-                  alt={ph.titulo}
-                  className="slide-image w-full h-full object-cover cursor-pointer"
-                />
-              </div>
+      {/* fixed scene */}
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
+        <div className="relative w-[800px] h-[400px]">
+          {proyectos.map((ph, index) => (
+            <div
+              key={ph.id}
+              ref={(el) => (stackRef.current[index] = el)}
+              className="absolute inset-0"
+              style={{ zIndex: proyectos.length - index }}
+            >
+              <img
+                src={ph.portada}
+                alt={ph.titulo}
+                className="w-full h-full object-cover"
+              />
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          ))}
+        </div>
+      </div>
     </>
   );
 }
