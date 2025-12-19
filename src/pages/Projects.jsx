@@ -1,19 +1,25 @@
 import { useState } from "react";
 import CarouselProjects from "../components/CarouselProjects";
 import { proyectos } from "../data/Projects";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useSearchParams } from "react-router-dom";
 
 export default function Projects() {
-  const { url } = useParams();
+  // del menu
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiper, setSwiper] = useState(null);
 
+  const [searchParams] = useSearchParams();
+  const projectSlug = searchParams.get("project");
+
   //busco el indice del click
-  const initialIndex = url ? proyectos.findIndex((p) => p.url === url) : 0;
+  const initialIndex = projectSlug
+    ? proyectos.findIndex((p) => p.url === projectSlug)
+    : 0;
 
   return (
     <main className="relative bg-gradient-to-b from-neutral-200 to-stone-50">
       <aside className="fixed left-0 bottom-10 z-40 hidden md:block pl-14">
+        {/* menu */}
         <ul className="space-y-2">
           {proyectos.map((item, index) => (
             <li

@@ -19,12 +19,10 @@ const router = createBrowserRouter(
         {
           path: "projects",
           element: <Projects />,
-          children: [
-            {
-              path: ":url",
-              element: <ProjectsDetail />,
-            },
-          ],
+        },
+        {
+          path: "projects/:url",
+          element: <ProjectsDetail />,
         },
         {
           path: "estudio",

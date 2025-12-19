@@ -4,7 +4,6 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import { useEffect, useRef } from "react";
-import VerticalPagination from "./VerticalPagination";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -61,7 +60,7 @@ export default function Carousel({ onSlideChange, setSwiper, initialSlide }) {
           >
             <div className=" h-full w-full flex items-center justify-center">
               <div className="w-[400px] h-[400px] md:w-[800px] md:h-[400px] slide_inner">
-                <Link to={`/projects/detail/${ph.url}`}>
+                <Link to={`/projects/${ph.url}`}>
                   <img
                     src={ph.portada}
                     alt={ph.titulo}
