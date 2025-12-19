@@ -1,11 +1,15 @@
 import { useState } from "react";
 import CarouselProjects from "../components/CarouselProjects";
 import { proyectos } from "../data/Projects";
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 
 export default function Projects() {
+  const { url } = useParams();
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiper, setSwiper] = useState(null);
+
+  //busco el indice del click
+  const initialIndex = url ? proyectos.findIndex((p) => p.url === url) : 0;
 
   return (
     <main className="relative bg-gradient-to-b from-neutral-200 to-stone-50">
@@ -28,9 +32,14 @@ export default function Projects() {
         </ul>
       </aside>
 
-      <CarouselProjects setSwiper={setSwiper} onSlideChange={setActiveIndex} />
-
-      <Outlet />
+      <CarouselProjects
+        setSwiper={setSwiper}
+        onSlideChange={setActiveIndex}
+        initialSlide={initialIndex}
+      />
+      <div className="absolute">
+        <Outlet />
+      </div>
     </main>
   );
 }

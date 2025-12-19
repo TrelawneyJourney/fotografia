@@ -6,15 +6,17 @@ import "swiper/css/pagination";
 import { useState } from "react";
 import VerticalPagination from "./VerticalPagination";
 
-import { photos } from "../data/Projects";
+import { proyectos } from "../data/Projects";
 import PhotoDescription from "./PhotoDescription";
+import { Link } from "react-router-dom";
 
 export default function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <>
-      <VerticalPagination active={activeIndex} total={photos.length} />
+      <VerticalPagination active={activeIndex} total={proyectos.length} />
+
       <Swiper
         rewind={true}
         mousewheel={true}
@@ -24,14 +26,17 @@ export default function Carousel() {
         className="mySwiper h-screen w-full"
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
       >
-        {photos.map((ph) => (
+        {proyectos.map((ph) => (
           <SwiperSlide key={ph.id}>
             <div className="relative h-screen w-full overflow-hidden">
-              <img
-                src={ph.portada}
-                alt={ph.titulo}
-                className="w-full h-full object-cover cursor-pointer"
-              />
+              <Link to={`/projects/${ph.url}`}>
+                <img
+                  src={ph.portada}
+                  alt={ph.titulo}
+                  className="w-full h-full object-cover cursor-pointer"
+                />
+              </Link>
+
               <div className="absolute bottom-40 md:bottom-5 left-10">
                 <PhotoDescription description={ph.titulo} />
               </div>

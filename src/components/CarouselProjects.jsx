@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 import { proyectos } from "../data/Projects";
 import { Link } from "react-router-dom";
 
-export default function Carousel({ onSlideChange, setSwiper }) {
+export default function Carousel({ onSlideChange, setSwiper, initialSlide }) {
   const slidesRef = useRef([]);
 
   useEffect(() => {
@@ -49,6 +49,7 @@ export default function Carousel({ onSlideChange, setSwiper }) {
         className="mySwiper h-screen w-full"
         rewind={true}
         threshold={5}
+        initialSlide={initialSlide >= 0 ? initialSlide : 0}
         onSwiper={setSwiper}
         onSlideChange={(swiper) => onSlideChange(swiper.activeIndex)}
       >
@@ -60,7 +61,7 @@ export default function Carousel({ onSlideChange, setSwiper }) {
           >
             <div className=" h-full w-full flex items-center justify-center">
               <div className="w-[400px] h-[400px] md:w-[800px] md:h-[400px] slide_inner">
-                <Link to={ph.url}>
+                <Link to={`/projects/detail/${ph.url}`}>
                   <img
                     src={ph.portada}
                     alt={ph.titulo}

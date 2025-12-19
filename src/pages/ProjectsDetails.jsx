@@ -4,7 +4,7 @@ export default function ProjectsDetail() {
   const { url } = useParams();
 
   return (
-    <div className="bg-amber-600 h-screen">
+    <div className="bg-amber-600 h-screen w-full">
       proyect detail galeria de imagen completa
       <h1>Imagen: {url}</h1>
       {/*
