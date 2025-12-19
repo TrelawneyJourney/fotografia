@@ -6,10 +6,19 @@ export default function ProjectsDetail() {
   const project = proyectos.find((p) => p.url === url);
 
   return (
-    <div className="bg-amber-600 h-screen w-full">
-      proyect detail galeria de imagen completa
-      <h1>Imagen: {url}</h1>
-      <p>titulo: {project.titulo}</p>
-    </div>
+    <main className="h-full w-full flex flex-col items-center justify-center gap-4">
+      <div className="relative h-[500px] w-full overflow-hidden">
+        <img
+          src={project.portada}
+          alt={project.titulo}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {project.fotos.map((foto) => (
+          <img src={foto} />
+        ))}
+      </div>
+    </main>
   );
 }

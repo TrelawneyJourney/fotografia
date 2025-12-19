@@ -58,7 +58,7 @@ export default function Carousel({ onSlideChange, setSwiper, initialSlide }) {
             className="slide"
             ref={(el) => (slidesRef.current[index] = el)}
           >
-            <div className=" h-full w-full flex items-center justify-center">
+            <div className="h-full w-full flex items-center justify-center">
               <div className="w-[400px] h-[400px] md:w-[800px] md:h-[400px] slide_inner">
                 <Link to={`/projects/${ph.url}`}>
                   <img

@@ -40,7 +40,7 @@ export default function Carousel() {
               <div className="absolute bottom-40 md:bottom-5 left-10">
                 <PhotoDescription
                   description={ph.titulo}
-                  phUrl={`/projects/${ph.url}`}
+                  phUrl={`/projects?project=${ph.url}`}
                 />
               </div>
             </div>
