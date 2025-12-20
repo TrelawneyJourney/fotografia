@@ -83,4 +83,20 @@ export const proyectos = [
       `${import.meta.env.BASE_URL}photos/noche/noche-4.jpg`,
     ],
   },
+  {
+    id: 4,
+    titulo: "Gala",
+    url: "gala",
+    portada: `${import.meta.env.BASE_URL}photos/gala/1.jpg`,
+    fotos: [
+      `${import.meta.env.BASE_URL}photos/gala/2.jpg`,
+      `${import.meta.env.BASE_URL}photos/gala/3.jpg`,
+      `${import.meta.env.BASE_URL}photos/gala/4.jpg`,
+      `${import.meta.env.BASE_URL}photos/gala/5.jpg`,
+      `${import.meta.env.BASE_URL}photos/gala/6.jpg`,
+      `${import.meta.env.BASE_URL}photos/gala/7.jpg`,
+      `${import.meta.env.BASE_URL}photos/gala/8.jpg`,
+      `${import.meta.env.BASE_URL}photos/gala/9.jpg`,
+    ],
+  },
 ];

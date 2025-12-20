@@ -53,7 +53,7 @@ export default function ProjectsDetail() {
   const layout = [
     "md:col-span-7",
     "md:col-span-4 md:col-start-9 mt-24",
-    "md:col-span-5 md:col-start-2",
+    "md:col-span-5 md:col-start-2 mt-24 md:mt-0",
     "md:col-span-6 md:col-start-7 mt-24",
   ];
 

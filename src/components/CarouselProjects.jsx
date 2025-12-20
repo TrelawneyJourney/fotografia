@@ -9,11 +9,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import { proyectos } from "../data/Projects";
 import { Link } from "react-router-dom";
+import VerticalPagination from "./VerticalPagination";
+import PhotoDescription from "./PhotoDescription";
 
 export default function CarouselProjects({
   onSlideChange,
   setSwiper,
   initialSlide,
+  onActiveIndex,
 }) {
   const slidesRef = useRef([]);
 
@@ -44,6 +47,9 @@ export default function CarouselProjects({
 
   return (
     <>
+      <div className="md:hidden">
+        <VerticalPagination active={onActiveIndex} total={proyectos.length} />
+      </div>
       <Swiper
         direction="vertical"
         mousewheel={{ forceToAxis: true }}
@@ -71,6 +77,11 @@ export default function CarouselProjects({
                     className="slide-image w-full h-full object-cover cursor-pointer"
                   />
                 </Link>
+                {/* <div className="absolute bottom-40 md:bottom-5 left-10 md:hidden">
+                  <h2 className="text-white text-4xl lg:text-3xl font-pt mb-6">
+                    {ph.titulo}
+                  </h2>
+                </div> */}
               </div>
             </div>
           </SwiperSlide>

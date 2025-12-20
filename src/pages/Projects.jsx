@@ -55,6 +55,7 @@ export default function Projects() {
         setSwiper={setSwiper}
         onSlideChange={setActiveIndex}
         initialSlide={initialIndex}
+        onActiveIndex={activeIndex}
       />
       <div
         className={`absolute inset-0 z-50 transition ${
