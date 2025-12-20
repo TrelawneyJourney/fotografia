@@ -4,6 +4,12 @@ import { proyectos } from "../data/Projects";
 export default function ProjectsDetail() {
   const { url } = useParams();
   const project = proyectos.find((p) => p.url === url);
+  const layout = [
+    "md:col-span-7",
+    "md:col-span-4 md:col-start-9 mt-24",
+    "md:col-span-5 md:col-start-2",
+    "md:col-span-6 md:col-start-7 mt-24",
+  ];
 
   return (
     <main className="h-full w-full flex flex-col items-center justify-center gap-4">
@@ -14,11 +20,18 @@ export default function ProjectsDetail() {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {project.fotos.map((foto) => (
-          <img src={foto} />
-        ))}
-      </div>
+
+      <section className="grid grid-cols-1 md:grid-cols-12 my-24">
+        <div className="md:col-start-2 md:col-span-10">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-8">
+            {project.fotos.map((photo, i) => (
+              <div key={photo} className={layout[i % layout.length]}>
+                <img src={photo} className="w-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
