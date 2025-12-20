@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CarouselProjects from "../components/CarouselProjects";
 import { proyectos } from "../data/Projects";
-import { Outlet, useSearchParams } from "react-router-dom";
+import { Outlet, useLocation, useSearchParams } from "react-router-dom";
 
 export default function Projects() {
   // del menu
@@ -15,6 +15,19 @@ export default function Projects() {
   const initialIndex = projectSlug
     ? proyectos.findIndex((p) => p.url === projectSlug)
     : 0;
+
+  //bloquear scroll
+  const location = useLocation();
+  const isDetailOpen = location.pathname.includes("/projects/");
+
+  useEffect(() => {
+    if (isDetailOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => (document.body.style.overflow = "");
+  }, [isDetailOpen]);
 
   return (
     <main className="relative bg-gradient-to-b from-neutral-200 to-stone-50">
@@ -43,7 +56,11 @@ export default function Projects() {
         onSlideChange={setActiveIndex}
         initialSlide={initialIndex}
       />
-      <div className="absolute">
+      <div
+        className={`absolute inset-0 z-50 transition ${
+          isDetailOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+      >
         <Outlet />
       </div>
     </main>

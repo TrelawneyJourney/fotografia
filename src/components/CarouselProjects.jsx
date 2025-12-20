@@ -10,7 +10,11 @@ gsap.registerPlugin(ScrollTrigger);
 import { proyectos } from "../data/Projects";
 import { Link } from "react-router-dom";
 
-export default function Carousel({ onSlideChange, setSwiper, initialSlide }) {
+export default function CarouselProjects({
+  onSlideChange,
+  setSwiper,
+  initialSlide,
+}) {
   const slidesRef = useRef([]);
 
   useEffect(() => {
