@@ -53,7 +53,11 @@ export default function Projects() {
       </aside>
 
       <div className="md:hidden">
-        <VerticalPagination active={activeIndex} total={proyectos.length} />
+        <VerticalPagination
+          active={activeIndex}
+          total={proyectos.length}
+          color="neutral"
+        />
       </div>
 
       <CarouselProjects
