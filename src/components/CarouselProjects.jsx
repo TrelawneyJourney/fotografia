@@ -9,14 +9,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import { proyectos } from "../data/Projects";
 import { Link } from "react-router-dom";
-import VerticalPagination from "./VerticalPagination";
-import PhotoDescription from "./PhotoDescription";
 
 export default function CarouselProjects({
   onSlideChange,
   setSwiper,
   initialSlide,
-  onActiveIndex,
 }) {
   const slidesRef = useRef([]);
 
@@ -47,9 +44,6 @@ export default function CarouselProjects({
 
   return (
     <>
-      <div className="md:hidden">
-        <VerticalPagination active={onActiveIndex} total={proyectos.length} />
-      </div>
       <Swiper
         direction="vertical"
         mousewheel={{ forceToAxis: true }}
@@ -68,20 +62,20 @@ export default function CarouselProjects({
             className="slide"
             ref={(el) => (slidesRef.current[index] = el)}
           >
-            <div className="h-full w-full flex items-center justify-center">
+            <div className="h-full w-full flex items-center justify-center ">
               <div className="w-[400px] h-[400px] md:w-[800px] md:h-[400px] slide_inner">
                 <Link to={`/projects/${ph.url}`}>
                   <img
                     src={ph.portada}
                     alt={ph.titulo}
-                    className="slide-image w-full h-full object-cover cursor-pointer"
+                    className="slide-image w-full h-full object-cover cursor-pointer shadow-md shadow-neutral-500 hover:shadow-lg transition duration-300"
                   />
                 </Link>
-                {/* <div className="absolute bottom-40 md:bottom-5 left-10 md:hidden">
-                  <h2 className="text-white text-4xl lg:text-3xl font-pt mb-6">
+                <div className="absolute bottom-28 left-15 md:hidden">
+                  <h2 className="bg-neutral-300/70 font-pt font-bold text-black text-2xl mix-blend-screen py-2 px-4 ">
                     {ph.titulo}
                   </h2>
-                </div> */}
+                </div>
               </div>
             </div>
           </SwiperSlide>

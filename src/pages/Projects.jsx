@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import CarouselProjects from "../components/CarouselProjects";
-import { proyectos } from "../data/Projects";
 import { Outlet, useLocation, useSearchParams } from "react-router-dom";
+import { proyectos } from "../data/Projects";
+import CarouselProjects from "../components/CarouselProjects";
+import VerticalPagination from "../components/VerticalPagination";
 
 export default function Projects() {
   // del menu
@@ -31,19 +32,19 @@ export default function Projects() {
 
   return (
     <main className="relative bg-gradient-to-b from-neutral-200 to-stone-50">
-      <aside className="fixed left-0 bottom-10 z-40 hidden md:block pl-14">
+      <aside className="fixed left-0 bottom-10 z-20 hidden md:block pl-14">
         {/* menu */}
         <ul className="space-y-2">
           {proyectos.map((item, index) => (
             <li
               key={item.id}
               onClick={() => swiper?.slideTo(index)}
-              className="relative text-xl text-neutral-600 hover:text-neutral-950 cursor-pointer"
+              className={`relative text-xl text-neutral-600 hover:text-neutral-950 cursor-pointer  `}
             >
               {item.titulo}
               <span
-                className={`absolute left-0 -bottom-1 h-[1px] bg-amber-500 transition-all duration-500 ${
-                  activeIndex === index ? "w-full" : "w-0"
+                className={`absolute left-0 -bottom-1 h-[1px] bg-neutral-400 transition-all duration-500 ${
+                  activeIndex === index ? "w-full hover:bg-neutral-950" : "w-0"
                 }`}
               />
             </li>
@@ -51,14 +52,17 @@ export default function Projects() {
         </ul>
       </aside>
 
+      <div className="md:hidden">
+        <VerticalPagination active={activeIndex} total={proyectos.length} />
+      </div>
+
       <CarouselProjects
         setSwiper={setSwiper}
         onSlideChange={setActiveIndex}
         initialSlide={initialIndex}
-        onActiveIndex={activeIndex}
       />
       <div
-        className={`absolute inset-0 z-50 transition ${
+        className={`absolute inset-0 z-30 transition ${
           isDetailOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
