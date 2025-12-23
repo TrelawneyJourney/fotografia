@@ -141,14 +141,14 @@ export const icons = {
     </svg>
   ),
 
-  arrow: () => (
+  arrow: ({ className = "" }) => (
     <svg
       width="20px"
       viewBox="0 -5 20 20"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      className="fill-amber-50"
+      className={className}
     >
       <title>arrow_right [#365]</title>
       <desc>Created with Sketch.</desc>

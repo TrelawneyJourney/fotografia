@@ -5,23 +5,20 @@ import StudioGrid from "../components/StudioGrid";
 export default function Estudio() {
   const Arrow = icons.arrow;
   return (
-    <main className="h-screen w-full bg-gradient-to-b from-neutral-300 to-stone-50 md:overflow-hidden">
-      {/* portada */}
-      {/* <div className="h-[500px] w-full overflow-hidden">
-        <img src={photoStudio.portada} className="w-full h-full object-cover" />
-      </div> */}
-
-      <section className="grid grid-cols-12 gap-6 px-8 h-screen">
+    <main className="min-h-screen w-full bg-gradient-to-b from-neutral-300 to-stone-50 md:overflow-hidden">
+      <div className="grid grid-cols-12 gap-2 md:gap-6 px-10 md:px-8">
         {/* Columna izquierda */}
-        <div className="py-32 col-span-12 md:col-span-4 md:col-start-2">
+        <div className="pt-20 md:py-32 col-span-12 md:col-span-4 md:col-start-2">
           <div className="space-y-6">
             <div className="flex flex-col">
-              <span className="text-xs tracking-widest text-neutral-500 my-1">
+              <span className="text-xs tracking-widest text-neutral-500">
                 formo parte de
               </span>
-              <h2 className="text-xl font-light">HECHIZARTE</h2>
-              <h3 className=" text-xs tracking-widest text-neutral-500">
-                estudio fotografico
+              <h2 className="text-2xl font-light tracking-widest">
+                HECHIZARTE
+              </h2>
+              <h3 className=" text-xs tracking-widest text-neutral-700">
+                estudio fotográfico
               </h3>
             </div>
 
@@ -35,15 +32,16 @@ export default function Estudio() {
               experiencia auténtica y memorable. Tu historia merece ser
               inmortalizada de forma única… y nosotros sabemos cómo lograrlo.
             </p>
-            <Link
-              to={"https://www.instagram.com/hechizarte.fotografia/"}
-              className="border w-36 px-4 py-2 flex justify-around items-center cursor-pointer hover:bg-neutral-800/90"
+
+            <a
+              href="https://www.instagram.com/hechizarte.fotografia/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-neutral-500 w-36 px-4 py-2 flex justify-around items-center cursor-pointer hover:bg-neutral-300 text-neutral-500"
             >
               <p className="text-sm">Saber más</p>
-              <div className="">
-                <Arrow />
-              </div>
-            </Link>
+              <Arrow className="text-neutral-500" />
+            </a>
           </div>
         </div>
 
@@ -51,7 +49,7 @@ export default function Estudio() {
         <div className="py-10 col-span-12 md:col-span-5 md:col-start-7">
           <StudioGrid />
         </div>
-      </section>
+      </div>
     </main>
   );
 }

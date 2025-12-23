@@ -11,8 +11,16 @@ export default function Hero() {
       </div>
       <div className="absolute bottom-6 right-12 z-40">
         <div className="flex gap-2 justify-center items-center">
-          <InstaIcon />
-          <Linkedin />
+          <a
+            href="https://www.instagram.com/galacaradepala_fotografia/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <InstaIcon />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <Linkedin />
+          </a>
         </div>
       </div>
     </>
