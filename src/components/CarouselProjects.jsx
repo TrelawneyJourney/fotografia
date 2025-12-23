@@ -63,17 +63,17 @@ export default function CarouselProjects({
             ref={(el) => (slidesRef.current[index] = el)}
           >
             <div className="h-full w-full flex items-center justify-center">
-              <div className="flex flex-col gap-2 bg-neutral-200 p-3">
+              <div className="flex flex-col gap-2 bg-neutral-200 p-3 shadow-md shadow-neutral-500 hover:shadow-lg transition duration-300">
                 <div className="w-[300px] h-[300px] md:w-[800px] md:h-[400px] slide_inner">
                   <Link to={`/projects/${ph.url}`} className="relative ">
                     <img
                       src={ph.portada}
                       alt={ph.titulo}
-                      className="slide-image w-full h-full object-cover cursor-pointer shadow-md shadow-neutral-500 hover:shadow-lg transition duration-300"
+                      className="slide-image w-full h-full object-cover cursor-pointer"
                     />
                   </Link>
                 </div>
-                <div className="flex items-center gap-2 font-light tracking-wider">
+                <div className="flex items-center gap-2 font-light tracking-wider md:hidden">
                   <p className="text-md">
                     {String(active + 1).padStart(2, "0")}
                   </p>
