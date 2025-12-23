@@ -73,11 +73,16 @@ export default function ProjectsDetail() {
 
       {/* galeria */}
       <section className="grid grid-cols-1 md:grid-cols-12 my-24">
-        <div className="md:col-start-2 md:col-span-10">
+        <div className="col-start-2 col-span-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-8">
             {project.fotos.map((photo, i) => (
               <div key={photo} className={layout[i % layout.length]}>
-                <img src={photo} className="w-full object-cover" />
+                <div>
+                  <img src={photo} className="w-full object-cover" />
+                  <p className="font-light tracking-wider text-md">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

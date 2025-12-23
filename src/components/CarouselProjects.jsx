@@ -14,6 +14,7 @@ export default function CarouselProjects({
   onSlideChange,
   setSwiper,
   initialSlide,
+  active,
 }) {
   const slidesRef = useRef([]);
 
@@ -62,20 +63,23 @@ export default function CarouselProjects({
             className="slide"
             ref={(el) => (slidesRef.current[index] = el)}
           >
-            <div className="h-full w-full flex items-center justify-center ">
-              <div className="w-[400px] h-[400px] md:w-[800px] md:h-[400px] slide_inner">
-                <Link to={`/projects/${ph.url}`} className="relative">
-                  <img
-                    src={ph.portada}
-                    alt={ph.titulo}
-                    className="slide-image w-full h-full object-cover cursor-pointer shadow-md shadow-neutral-500 hover:shadow-lg transition duration-300"
-                  />
-                  <div className="absolute bottom-5 left-5 md:hidden">
-                    <h2 className="bg-neutral-300/70 font-pt font-bold text-black text-2xl mix-blend-screen py-2 px-4 ">
-                      {ph.titulo}
-                    </h2>
-                  </div>
-                </Link>
+            <div className="h-full w-full flex items-center justify-center">
+              <div className="flex flex-col gap-2 bg-neutral-200 p-3">
+                <div className="w-[400px] h-[400px] md:w-[800px] md:h-[400px] slide_inner">
+                  <Link to={`/projects/${ph.url}`} className="relative ">
+                    <img
+                      src={ph.portada}
+                      alt={ph.titulo}
+                      className="slide-image w-full h-full object-cover cursor-pointer shadow-md shadow-neutral-500 hover:shadow-lg transition duration-300"
+                    />
+                  </Link>
+                </div>
+                <div className="flex items-center gap-2 font-light tracking-wider">
+                  <p className="text-md">
+                    {String(active + 1).padStart(2, "0")}
+                  </p>
+                  <p className="text-lg">{ph.titulo}</p>
+                </div>
               </div>
             </div>
           </SwiperSlide>
