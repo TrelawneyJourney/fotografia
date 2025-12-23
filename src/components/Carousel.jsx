@@ -34,6 +34,7 @@ export default function Carousel() {
                   src={ph.portada}
                   alt={ph.titulo}
                   className="w-full h-full object-cover cursor-pointer"
+                  loading="lazy"
                 />
               </Link>
 

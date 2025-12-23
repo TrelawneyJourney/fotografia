@@ -68,6 +68,7 @@ export default function ProjectsDetail() {
           src={project.portada}
           alt={project.titulo}
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 flex flex-col gap-3 justify-center items-center">
           <p className="text-xl font-light tracking-widest text-neutral-100">
@@ -86,7 +87,11 @@ export default function ProjectsDetail() {
             {project.fotos.map((photo, i) => (
               <div key={photo} className={layout[i % layout.length]}>
                 <div>
-                  <img src={photo} className="w-full object-cover" />
+                  <img
+                    src={photo}
+                    className="w-full object-cover"
+                    loading="lazy"
+                  />
                   <p className="font-light tracking-wider text-md">
                     {String(i + 1).padStart(2, "0")}
                   </p>

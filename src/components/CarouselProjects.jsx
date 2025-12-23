@@ -71,6 +71,7 @@ export default function CarouselProjects({
                         src={ph.portada}
                         alt={ph.titulo}
                         className="slide-image w-full h-full object-cover cursor-pointer"
+                        loading="lazy"
                       />
                       <div className="absolute bottom-5 px-4 left-3 flex items-center gap-2 font-light text-lg text-white tracking-wider md:hidden">
                         <p className="">
