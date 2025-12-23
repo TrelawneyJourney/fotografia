@@ -64,7 +64,7 @@ export default function CarouselProjects({
           >
             <div className="h-full w-full flex items-center justify-center">
               <div className="flex flex-col gap-2 bg-neutral-200 p-3 shadow-md shadow-neutral-500 hover:shadow-lg transition duration-300">
-                <div className="w-[300px] h-[300px] md:w-[800px] md:h-[400px] slide_inner">
+                <div className="w-[350px] h-[350px] md:w-[800px] md:h-[400px] slide_inner">
                   <Link to={`/projects/${ph.url}`} className="relative ">
                     <img
                       src={ph.portada}
