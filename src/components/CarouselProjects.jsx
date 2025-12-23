@@ -52,7 +52,6 @@ export default function CarouselProjects({
         modules={[EffectFade, Mousewheel]}
         className="mySwiper h-screen w-full"
         rewind={true}
-        threshold={5}
         initialSlide={initialSlide >= 0 ? initialSlide : 0}
         onSwiper={setSwiper}
         onSlideChange={(swiper) => onSlideChange(swiper.activeIndex)}
@@ -65,7 +64,7 @@ export default function CarouselProjects({
           >
             <div className="h-full w-full flex items-center justify-center">
               <div className="flex flex-col gap-2 bg-neutral-200 p-3">
-                <div className="w-[400px] h-[400px] md:w-[800px] md:h-[400px] slide_inner">
+                <div className="w-[300px] h-[300px] md:w-[800px] md:h-[400px] slide_inner">
                   <Link to={`/projects/${ph.url}`} className="relative ">
                     <img
                       src={ph.portada}
