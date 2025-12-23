@@ -29,7 +29,7 @@ export default function Carousel() {
         {proyectos.map((ph) => (
           <SwiperSlide key={ph.id}>
             <div className="relative h-screen w-full overflow-hidden">
-              <Link to={`/projects?project=${ph.url}`}>
+              <Link to={`/projects/${ph.url}`}>
                 <img
                   src={ph.portada}
                   alt={ph.titulo}
@@ -41,7 +41,7 @@ export default function Carousel() {
               <div className="absolute bottom-40 md:bottom-5 left-10">
                 <PhotoDescription
                   description={ph.titulo}
-                  phUrl={`/projects?project=${ph.url}`}
+                  phUrl={`/projects/${ph.url}`}
                 />
               </div>
             </div>
