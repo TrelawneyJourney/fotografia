@@ -63,21 +63,23 @@ export default function CarouselProjects({
             ref={(el) => (slidesRef.current[index] = el)}
           >
             <div className="h-full w-full flex items-center justify-center">
-              <div className="flex flex-col gap-2 bg-neutral-200 p-3 shadow-md shadow-neutral-500 hover:shadow-lg transition duration-300">
-                <div className="w-[350px] h-[350px] md:w-[800px] md:h-[400px] slide_inner">
-                  <Link to={`/projects/${ph.url}`} className="relative ">
-                    <img
-                      src={ph.portada}
-                      alt={ph.titulo}
-                      className="slide-image w-full h-full object-cover cursor-pointer"
-                    />
-                  </Link>
-                </div>
-                <div className="flex items-center gap-2 font-light tracking-wider md:hidden">
-                  <p className="text-md">
-                    {String(active + 1).padStart(2, "0")}
-                  </p>
-                  <p className="text-lg">{ph.titulo}</p>
+              <div className="flex flex-col gap-2 bg-neutral-200 md:p-3 shadow-md shadow-neutral-500 hover:shadow-lg transition duration-300">
+                <div className="m-2 pt-4 md:p-0 md:m-0">
+                  <div className="h-screen w-full p-6 md:p-0 overflow-hidden md:w-[800px] md:h-[400px] slide_inner">
+                    <Link to={`/projects/${ph.url}`} className="relative ">
+                      <img
+                        src={ph.portada}
+                        alt={ph.titulo}
+                        className="slide-image w-full h-full object-cover cursor-pointer"
+                      />
+                    </Link>
+                  </div>
+                  <div className="flex items-center gap-2 font-light tracking-wider md:hidden">
+                    <p className="text-md">
+                      {String(active + 1).padStart(2, "0")}
+                    </p>
+                    <p className="text-lg">{ph.titulo}</p>
+                  </div>
                 </div>
               </div>
             </div>
