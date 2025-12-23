@@ -52,14 +52,9 @@ export default function Projects() {
         </ul>
       </aside>
 
-      <div className={`md:hidden ${isDetailOpen ? "hidden" : ""}`}>
-        <VerticalPagination
-          active={activeIndex}
-          total={proyectos.length}
-          color="neutral"
-          orientation="horizontal"
-        />
-      </div>
+      {/* <div className={`md:hidden ${isDetailOpen ? "hidden" : ""}`}>
+        <VerticalPagination active={activeIndex} total={proyectos.length} />
+      </div> */}
 
       <CarouselProjects
         setSwiper={setSwiper}

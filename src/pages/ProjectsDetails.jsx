@@ -69,6 +69,14 @@ export default function ProjectsDetail() {
           alt={project.titulo}
           className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 flex flex-col gap-3 justify-center items-center">
+          <p className="text-xl font-light tracking-widest text-neutral-100">
+            proyecto
+          </p>
+          <h2 className="text-4xl font-semibold tracking-widest text-neutral-200">
+            {project.titulo}
+          </h2>
+        </div>
       </div>
 
       {/* galeria */}
