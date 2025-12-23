@@ -64,18 +64,18 @@ export default function CarouselProjects({
           >
             <div className="h-full w-full flex items-center justify-center ">
               <div className="w-[400px] h-[400px] md:w-[800px] md:h-[400px] slide_inner">
-                <Link to={`/projects/${ph.url}`}>
+                <Link to={`/projects/${ph.url}`} className="relative">
                   <img
                     src={ph.portada}
                     alt={ph.titulo}
                     className="slide-image w-full h-full object-cover cursor-pointer shadow-md shadow-neutral-500 hover:shadow-lg transition duration-300"
                   />
+                  <div className="absolute bottom-5 left-5 md:hidden">
+                    <h2 className="bg-neutral-300/70 font-pt font-bold text-black text-2xl mix-blend-screen py-2 px-4 ">
+                      {ph.titulo}
+                    </h2>
+                  </div>
                 </Link>
-                <div className="absolute bottom-28 left-15 md:hidden">
-                  <h2 className="bg-neutral-300/70 font-pt font-bold text-black text-2xl mix-blend-screen py-2 px-4 ">
-                    {ph.titulo}
-                  </h2>
-                </div>
               </div>
             </div>
           </SwiperSlide>

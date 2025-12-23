@@ -18,7 +18,7 @@ export default function VerticalPagination({ active, total, color = "white" }) {
 
   return (
     <div
-      className={`fixed right-8 top-1/2 -translate-y-1/2 flex flex-col items-center z-40 ${c.text}`}
+      className={`fixed right-10 top-1/2 -translate-y-1/2 flex flex-col items-center z-40 ${c.text}`}
     >
       {/* Número actual */}
       <span className="text-lg font-light tracking-wider">
