@@ -7,13 +7,39 @@ export default function ProjectsDetail() {
   const { url } = useParams();
   const navigate = useNavigate();
   const containerRef = useRef(null);
+  const imageRef = useRef(null);
+  const textRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
+    const tl = gsap.timeline();
+
+    tl.fromTo(
       containerRef.current,
-      { opacity: 0, y: 80 },
-      { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
-    );
+      { opacity: 0 },
+      { opacity: 1, duration: 0.6, ease: "power2.out" }
+    )
+      .fromTo(
+        imageRef.current,
+        { scale: 1.08, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.4,
+          ease: "power3.out",
+        },
+        "-=0.2"
+      )
+      .fromTo(
+        textRef.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.6"
+      );
   }, []);
 
   //scroll
@@ -65,12 +91,16 @@ export default function ProjectsDetail() {
       {/* portada */}
       <div className="relative h-[500px] w-full overflow-hidden">
         <img
+          ref={imageRef}
           src={project.portada}
           alt={project.titulo}
           className="w-full h-full object-cover"
-          loading="lazy"
+          loading="eager"
         />
-        <div className="absolute bottom-10 left-0 right-0 m-auto md:inset-0 flex flex-col  gap-2 md:gap-3 justify-center items-center  text-shadow-md/70 text-shadow-black">
+        <div
+          ref={textRef}
+          className="absolute bottom-10 left-0 right-0 m-auto md:inset-0 flex flex-col  gap-2 md:gap-3 justify-center items-center  text-shadow-md/70 text-shadow-black"
+        >
           <p className="text-xl font-light tracking-widest text-neutral-100">
             proyecto
           </p>
