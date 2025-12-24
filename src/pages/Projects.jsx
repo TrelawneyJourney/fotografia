@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
-import { Outlet, useLocation, useSearchParams } from "react-router-dom";
+import {
+  Outlet,
+  useLocation,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import { proyectos } from "../data/Projects";
 import CarouselProjects from "../components/CarouselProjects";
 import VerticalPagination from "../components/VerticalPagination";
 
 export default function Projects() {
+  const { url } = useParams();
   // del menu
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiper, setSwiper] = useState(null);
@@ -56,12 +62,15 @@ export default function Projects() {
         <VerticalPagination active={activeIndex} total={proyectos.length} />
       </div> */}
 
-      <CarouselProjects
-        setSwiper={setSwiper}
-        onSlideChange={setActiveIndex}
-        initialSlide={initialIndex}
-        active={activeIndex}
-      />
+      {!url && (
+        <CarouselProjects
+          setSwiper={setSwiper}
+          onSlideChange={setActiveIndex}
+          initialSlide={initialIndex}
+          active={activeIndex}
+        />
+      )}
+
       <div
         className={`absolute inset-0 z-30 transition ${
           isDetailOpen ? "pointer-events-auto" : "pointer-events-none"
