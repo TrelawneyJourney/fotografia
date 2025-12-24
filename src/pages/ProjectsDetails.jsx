@@ -99,7 +99,7 @@ export default function ProjectsDetail() {
         />
         <div
           ref={textRef}
-          className="absolute bottom-10 left-0 right-0 m-auto md:inset-0 flex flex-col  gap-2 md:gap-3 justify-center items-center  text-shadow-md/70 text-shadow-black"
+          className="absolute bottom-10 left-0 right-0 m-auto md:inset-0 flex flex-col  gap-2 md:gap-3 justify-center items-center text-shadow-md/70 text-shadow-neutral-900"
         >
           <p className="text-xl font-light tracking-widest text-neutral-100">
             proyecto
