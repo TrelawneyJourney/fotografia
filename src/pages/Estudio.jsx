@@ -22,7 +22,7 @@ export default function Estudio() {
               </h3>
             </div>
 
-            <p className="text-sm leading-relaxed text-neutral-600 max-w-xs">
+            <p className="text-sm leading-relaxed text-neutral-600 md:max-w-xs">
               Junto con mi colega Eru, somos creadoras de un espacio donde cada
               imagen cuenta una historia única. En nuestro estudio capturamos tu
               esencia con profesionalismo, dedicación y una atención
