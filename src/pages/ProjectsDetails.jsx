@@ -70,11 +70,11 @@ export default function ProjectsDetail() {
           className="w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 flex flex-col gap-3 justify-center items-center">
+        <div className="absolute bottom-10 left-0 right-0 m-auto md:inset-0 flex flex-col  gap-2 md:gap-3 justify-center items-center  text-shadow-md/70 text-shadow-black">
           <p className="text-xl font-light tracking-widest text-neutral-100">
             proyecto
           </p>
-          <h2 className="text-4xl font-semibold tracking-widest text-neutral-200">
+          <h2 className="font-pt text-4xl font-semibold tracking-widest text-neutral-200">
             {project.titulo}
           </h2>
         </div>
