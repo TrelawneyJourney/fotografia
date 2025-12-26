@@ -3,9 +3,7 @@ export default function Contact() {
     <main
       className="h-screen w-full bg-cover bg-center flex justify-center items-center"
       style={{
-        backgroundImage: `url(${
-          import.meta.env.BASE_URL
-        }photos/gala/photos/8.jpg)`,
+        backgroundImage: `url(${import.meta.env.BASE_URL}photos/gala/8.jpg)`,
       }}
     >
       <div className="mt-4 md:mt-6 shadow-lg shadow-neutral-50">
