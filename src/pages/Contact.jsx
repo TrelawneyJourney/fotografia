@@ -2,7 +2,11 @@ export default function Contact() {
   return (
     <main
       className="h-screen w-full bg-cover bg-center flex justify-center items-center"
-      style={{ backgroundImage: "url('public/photos/gala/8.jpg')" }}
+      style={{
+        backgroundImage: `url(${
+          import.meta.env.BASE_URL
+        }photos/gala/photos/8.jpg)`,
+      }}
     >
       <div className="mt-4 md:mt-6 shadow-lg shadow-neutral-50">
         <div className="grid grid-cols-1 md:grid-cols-2 text-white bg-neutral-800/50 backdrop-blur-lg backdrop-opacity-60 p-4 md:p-6">
