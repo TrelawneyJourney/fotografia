@@ -4,7 +4,7 @@ import { icons } from "../assets/icons";
 export default function PhotoDescription({ description, phUrl }) {
   const Arrow = icons.arrow;
   return (
-    <div className="text-white p-6 bg-neutral-800/20 backdrop-blur-2xl backdrop-opacity-55 max-w-md ">
+    <div className="text-white p-6 bg-neutral-800/20 backdrop-blur-2xl backdrop-opacity-55 max-w-md">
       <h2 className="text-2xl lg:text-3xl font-pt mb-6">{description}</h2>
       <Link
         to={phUrl}

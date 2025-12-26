@@ -5,7 +5,7 @@ import StudioGrid from "../components/StudioGrid";
 export default function Estudio() {
   const Arrow = icons.arrow;
   return (
-    <main className="min-h-screen w-full bg-gradient-to-b from-neutral-300 to-stone-50 md:overflow-hidden">
+    <main className="min-h-screen md:h-screen w-full bg-gradient-to-b from-neutral-300 to-stone-50 md:overflow-hidden">
       <div className="grid grid-cols-12 gap-2 md:gap-6 px-10 md:px-8">
         {/* Columna izquierda */}
         <div className="pt-20 md:py-32 col-span-12 md:col-span-4 md:col-start-2">
